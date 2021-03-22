@@ -5,7 +5,8 @@ function joinNs(endpoint){
         // remove the eventListener before it's added again
         document.querySelector('#user-input').removeEventListener('submit',formSubmission)
     }
-    nsSocket = io(`http://localhost:9000${endpoint}`)
+    const url = process.env.URL || 'http://localhost:9000';
+    nsSocket = io(url + endpoint)
     nsSocket.on('nsRoomLoad',(nsRooms)=>{
         // console.log(nsRooms)
         let roomList = document.querySelector('.room-list');
