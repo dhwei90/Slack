@@ -9,6 +9,7 @@ app.use(express.static(__dirname + '/public'));
 const port = process.env.PORT || 9000;
 const expressServer = app.listen(port);
 const io = socketio(expressServer);
+const url = process.env.URL || 'http://localhost:9000';
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname + '/public/chat.html'))

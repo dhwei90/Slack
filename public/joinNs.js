@@ -5,8 +5,9 @@ function joinNs(endpoint){
         // remove the eventListener before it's added again
         document.querySelector('#user-input').removeEventListener('submit',formSubmission)
     }
-    const url = process.env.URL || 'http://localhost:9000';
-    nsSocket = io(`${url}${endpoint}`)
+    const url = 'https://dhwei-slack.herokuapp.com';
+    //const url = 'http://localhost:9000';
+    nsSocket = io(url + endpoint)
     nsSocket.on('nsRoomLoad',(nsRooms)=>{
         // console.log(nsRooms)
         let roomList = document.querySelector('.room-list');
