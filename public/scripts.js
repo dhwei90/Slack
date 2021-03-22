@@ -1,7 +1,7 @@
 const username = prompt("What is your username?")
 // const socket = io('http://localhost:9000'); // the / namespace/endpoint
 const url = process.env.URL || 'http://localhost:9000';
-const socket = io(url,{
+const socket = io(`${url}`,{
     query: {
         username
     }
